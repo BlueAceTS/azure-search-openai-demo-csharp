@@ -168,7 +168,7 @@ Don't put your answer between ```json and ```, return the json string directly. 
 You answer needs to be a json object with the following format.
 {{
     ""answer"": // the answer to the question, add a source reference to the end of each sentence. e.g. Apple is a fruit [reference1.pdf][reference2.pdf]. If no source available, put the answer as I don't know.
-    ""thoughts"": // brief thoughts on how you came up with the answer, e.g. what sources you used, what you thought about, etc.
+    ""thoughts"": // kurze Gedanken dazu, wie Sie auf die Antwort gekommen sind, z.B. welche Quellen Sie verwendet haben, worüber Sie nachgedacht haben usw.
 }}";
             answerChat.AddUserMessage(prompt);
         }
@@ -194,8 +194,9 @@ You answer needs to be a json object with the following format.
         // add follow up questions if requested
         if (overrides?.SuggestFollowupQuestions is true)
         {
-            var followUpQuestionChat = new ChatHistory(@"You are a helpful AI assistant");
-            followUpQuestionChat.AddUserMessage($@"Generate three follow-up question based on the answer you just generated.
+            var followUpQuestionChat = new ChatHistory(@"Du bist ein hilfreicher AI Assistent"); //new ChatHistory(@"You are a helpful AI assistant");
+            //followUpQuestionChat.AddUserMessage($@"Generate three follow-up question based on the answer you just generated.
+            followUpQuestionChat.AddUserMessage($@"Erzeuge drei Folgefragen basierend auf der Antwort die du gerade generiert hast.
 # Answer
 {ans}
 
